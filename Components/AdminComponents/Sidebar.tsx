@@ -4,7 +4,7 @@ import Link from "next/link";
 const Sidebar = () => {
   return (
     <div className="max-w-56 border border-black h-[100vh]">
-      <div className="w-full mb-[30px]">
+      <div className="w-full mb-[30px] border-b-gray-400 border-b-2">
         <Image
           src="/assets/blogger.jpg"
             width={230}
