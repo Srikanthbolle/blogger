@@ -10,7 +10,7 @@ interface Props {
   params: { id: string };
 }
 
-const BlogPage = ({ params }: Props) => {
+const BlogPage = async ({ params }: Props) => {
   const blogId = Number(params.id);
   const blog = blog_data.find((item) => item.id === blogId);
 
