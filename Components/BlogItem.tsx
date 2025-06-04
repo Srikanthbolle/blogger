@@ -3,15 +3,15 @@ import React from "react";
 import { blog_data } from "../public/assets/assets";
 import Link from "next/link";
 
-interface BlogItemProps {
-    id:number;
-  title: string;
-  image: string;
-  category: string;
-  description: string;
-}
+// interface BlogItemProps {
+//     id:number;
+//   title: string;
+//   image: string;
+//   category: string;
+//   description: string;
+// }
 
-const BlogItem = ({ image, category, title, description,id }: BlogItemProps) => {
+const BlogItem = ({ image, category, title, description,id }) => {
 
   return (
     <div className="max-w-[330px] sm:max-w-[300px] bg-white mx-[20px] border border-black hover:shadow-[-7px_7px_0px_#000000]">
