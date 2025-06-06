@@ -1,6 +1,7 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { blog_data } from "../public/assets/assets";
 import BlogItem from "./BlogItem";
+import axios from "axios";
 
 interface blogListProps{
     categoryStyles:string[];
@@ -8,8 +9,15 @@ interface blogListProps{
 
 const BlogList = ({categoryStyles}:blogListProps) => {
     const [menu,setMenu] = useState("All");
-   
-   console.log('sty',categoryStyles)
+    const [blogs,setBlogs] = useState([])
+    const fetchBlogs= async()=>{
+        const resp = await axios.get("/api/blog")
+        setBlogs(resp.data.blogs)
+        console.log(resp.data.blogs)
+    }
+    useEffect(()=>{
+        fetchBlogs()
+    },[])
   return (
     <div className="">
       <div className="flex justify-center gap-6 my-10">
@@ -30,10 +38,10 @@ const BlogList = ({categoryStyles}:blogListProps) => {
        */}
       </div>
       <div className="flex flex-wrap justify-around gap-1 gap-y-10 mb-16 xl:mx-24">
-        {blog_data
+        {blogs
           .filter((cat) => menu === "All" || cat.category === menu)
           .map((item, index)=>{
-                return <BlogItem key={index} id={item.id} image={item.image} title={item.title} category={item.category} description={item.description}/>
+                return <BlogItem key={index} id={item._id} image={item.image} title={item.title} category={item.category} description={item.description}/>
             })
         }
       </div>
