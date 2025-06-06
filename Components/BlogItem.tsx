@@ -13,11 +13,12 @@ import Link from "next/link";
 
 const BlogItem = ({ image, category, title, description,id }) => {
 
+
   return (
-    <div className="max-w-[330px] sm:max-w-[300px] bg-white mx-[20px] border border-black hover:shadow-[-7px_7px_0px_#000000]">
+    <div className="max-w-[330px] sm:max-w-[300px] bg-gray-200 mx-[20px] border border-black shadow-sm transition duration-300 transform hover:scale-110 hover:shadow-[1px_10px_10px_-10px_rgba(0,0,24,0.5)] rounded-lg inline-block align-middle m-2 px-6 py-4">
       <Link href={`blogs/${id}`}>
       <Image
-        src={image}
+        src={image ? image : "/assets/profile_1.png"}
         alt=""
         width={400}
         height={400}
